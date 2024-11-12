@@ -4,12 +4,14 @@ from flask import Flask, render_template, request
 import pickle
 
 application = Flask(__name__) # initializing a flask app
-# app=application
-@application.route('/',methods=['GET'])  # route to display the home page
+app=application
+@app.route('/',methods=['GET'])  # route to display the home page
+# @cross_origin()
 def homePage():
     return render_template("index.html")
 
-@application.route('/predict',methods=['POST','GET']) # route to show the predictions in a web UI
+@app.route('/predict',methods=['POST','GET']) # route to show the predictions in a web UI
+# @cross_origin()
 def index():
     if request.method == 'POST':
         try:
@@ -34,7 +36,8 @@ def index():
             return render_template('results.html',prediction=round(100*prediction[0]))
         except Exception as e:
             print('The Exception message is: ',e)
-            return render_template('error.html', message = 'Something is wrong!')
+            return 'something is wrong'
+    # return render_template('results.html')
     else:
         return render_template('index.html')
 

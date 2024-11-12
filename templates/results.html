@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" >
-
-<head>
-  <meta charset="UTF-8">
-  <title>Review Page</title>
-
+  <head>
+    <meta charset="UTF-8">
+    <title>Review Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-
-      <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
 
+  <body>
+    <div class = "container">
+      <div class = "content">
+        <div class = "textContent">
+          <h1 class = "prediction">
+          <h1 id = "heading">Prediction</h1>
+          <p>Your chance for admission is <strong>{{prediction}}</strong> percent</p>
+          <hr>
+          <h1 id="heading">About the model</h1>
 
-</head>
-
-<body>
-
-  <div class="table-users">
-   <div class="header">Prediction</div>
-
-      <p>Your chance for admission is {{prediction}} percent</p>
-</div>
-
-
-
-</body>
-
+          <table>
+              <tr>
+                  <th>
+                      Model Type:
+                  </th>
+                  <td>
+                      Linear Regression
+                  </td>
+              </tr>
+              <tr>
+                  <th>
+                      R2 Score:
+                  </th>
+                  <td>
+                      84.15%
+                  </td>
+              </tr>
+              <tr>
+                  <th>
+                      Adj. R2 Score:
+                  </th>
+                  <td>
+                      83.85%
+                  </td>
+              </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,29 +1,150 @@
 {% extends 'base.html' %}
 
 {% block head %}
-
-<title>Search Page</title>
+<title>Predict Your Admission Chances</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 {% endblock %}
 
 {% block body %}
-<div class="content">
-    <h1 style="text-align: center">Predict Your chances for Admission</h1>
+<div class = "container">
+    <div class="content">
+        <div class = "textContent">
+            <h1 id="heading">Welcome to Your Future</h1>
+            <p id="paraTitles">Predict Your Graduate School Admission Chances with Ease</p>
+            <p>
+                Are you aspiring to join a prestigious graduate program? Wondering about your chances of admission? Our state-of-the-art prediction tool is here to help! Utilizing advanced linear regression models, we provide you with insights into your likelihood of being admitted based on key academic parameters.
+            </p>
+            <h1 id="heading">Why use our tool?</h1>
+            <P>
+                <ul>
+                    <li>
+                        <strong>Accurate Predictions:</strong> Our model uses the latest machine learning techniques to deliver precise predictions.
+                    </li>
+                    <li>
+                        <strong>Easy-to-use:</strong> Simply input your details, and our system will do the rest.
+                    </li>
+                    <li>
+                        <strong>Personalized Insights:</strong>  Get tailored advice based on your unique profile.
+                    </li>
+                </ul>
+            </P>
+            <hr>
+            <h1 id="heading">What We Analyze?</h1>
+            <p>
+                Our model considers the following crucial factors to predict your admission chances:
+                
+                <ul>
+                    <li>
+                        <strong>GRE Score:</strong> Your performance on the Graduate Record Examination.
+                    </li>
+                    <li>
+                        <strong>TOEFL Score:</strong> Your proficiency in English as indicated by your Test of English as a Foreign Language score.
+                    </li>
+                    <li>
+                        <strong>University Rating:</strong> The prestige and rating of the university you attended.
+                    </li>
+                    <li>
+                        <strong>SOP:</strong> The strength of your Statement of Purpose.
+                    </li>
+                    <li>
+                        <strong>LOR:</strong> The quantity of your Letters of Recommendation.
+                    </li>
+                    <li>
+                        <strong>CGPA:</strong> Your Cumulative Grade Point Average.
+                    </li>
+                    <li>
+                        <strong>Research:</strong> Your experience in research field.
+                    </li>
+                </ul>
+            </p>
+            <hr>
+            <h1 id="heading">About the model</h1>
+    
+            <table>
+                <tr>
+                    <th>
+                        Model Type:
+                    </th>
+                    <td>
+                        Linear Regression
+                    </td>
+                </tr>
+    
+                <tr>
+                    <th>
+                        R2 Score:
+                    </th>
+                    <td>
+                        84.15%
+                    </td>
+                </tr>
+    
+                <tr>
+                    <th>
+                        Adj. R2 Score:
+                    </th>
+                    <td>
+                        83.85%
+                    </td>
+                </tr>
+            </table>
+            <hr>
+        </div>
 
-    <div class="form">
-        <form action="/predict" method="POST">
-            <input type="number" name="gre_score" id="gre_score" placeholder="GRE Score">
-            <input type="number" name="toefl_score" id="toefl_score" placeholder="TOEFL Score">
-            <input type="number" name="university_rating" id="university_rating" placeholder="University Rating">
-            <input type="number" name="sop" id="sop" placeholder="SOP Score">
-            <input type="number" name="lor" id="lor" placeholder="LOR Score">
-            <input type="number" name="cgpa" id="cgpa"placeholder="CGPA" step="any">
-            <select name="research" id="research">
-  <option value="yes">Yes</option>
-  <option value="no">No</option>
-</select>
-            <input type="submit" value="Predict">
-        </form>
+        <div class="form">
+            <center><h1 id="heading">Get Started</h1></center>
+            <p id="paraTitles">Fill out the form below with your details and get your prediction instantly!</p>
+            <form action="/predict" method="POST" class="formElems">
+                <table cellspacing="10">
+                    <tr>
+                        <td>
+                            <label for="gre_score">GRE Score:</label><br>
+                            <input type="number" name="gre_score" id="gre_score" placeholder="Enter your GRE Score" required>
+                        </td>
+
+                        <td>
+                            <label for="toefl_score">TOEFL Score:</label><br>
+                            <input type="number" name="toefl_score" id="toefl_score" placeholder="Enter your TOEFL Score" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="university_rating">University Rating (1-5):</label><br>
+                            <input type="number" name="university_rating" id="university_rating" placeholder="Enter your University Rating" min="1" max="5" required>
+                        </td>
+                        <td>
+                            <label for="sop">SOP Score (1-5):</label><br>
+                            <input type="number" name="sop" id="sop" placeholder="Enter your SOP Score" min="1" max="5" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="lor">LOR Score (1-5):</label><br>
+                            <input type="number" name="lor" id="lor" placeholder="Enter your LOR Score" min="1" max="5" required>
+                        </td>
+                    
+                        <td>
+                            <label for="cgpa">CGPA:</label><br>
+                            <input type="number" name="cgpa" id="cgpa" placeholder="Enter your CGPA" step="any" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><label for="research">Research Experience:</label><br>
+                            <select name="research" id="research">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <input type="submit" value="Predict" id="submit">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        
     </div>
 </div>
 {% endblock %}
