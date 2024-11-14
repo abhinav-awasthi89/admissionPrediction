@@ -1,6 +1,6 @@
+
 # importing the necessary dependencies
 from flask import Flask, render_template, request
-from waitress import serve
 import pickle
 
 application = Flask(__name__) # initializing a flask app
@@ -42,5 +42,4 @@ def index():
 
 if __name__ == "__main__":
     #app.run(host='127.0.0.1', port=8001, debug=True)
-	# application.run(debug=True) # running the app
-    serve(application, host="0.0.0.0", port=5000)
+	application.run(debug=True) # running the app
