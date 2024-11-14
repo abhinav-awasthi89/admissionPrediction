@@ -47,7 +47,7 @@ By analyzing these factors, the model provides a prediction of your admission ch
     ```
 
 4. **Access the app**:
-   Open [http://localhost:5000](http://localhost:5000) in your browser to access the app.
+   Open [http://localhost:8080](http://localhost:8080) in your browser to access the app.
 
 ---
 
@@ -67,13 +67,7 @@ This project is hosted on Render, allowing for seamless deployment and scalabili
 
 ### Live Project Link
 
-[View the deployed project on Render](https://your-render-url.onrender.com)
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+[View the deployed project on Render](https://admissionprediction-7.onrender.com/)
 
 ---
 
